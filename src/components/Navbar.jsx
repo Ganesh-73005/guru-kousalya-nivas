@@ -22,11 +22,11 @@ const Navbar = () => {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(251,246,236,0.92)" : "rgba(251,246,236,0.6)",
-        backdropFilter: "blur(10px)",
-        borderBottom: `1px solid ${scrolled ? "rgba(182,138,62,0.4)" : "rgba(182,138,62,0.2)"}`,
+        background: "var(--ivory)",
+        borderBottom: "1px solid rgba(182,138,62,0.3)",
+        boxShadow: scrolled ? "0 2px 8px rgba(0,0,0,0.08)" : "none",
       }}
     >
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-3 lg:px-10">
@@ -39,11 +39,12 @@ const Navbar = () => {
             <Lotus className="h-6 w-6" color="var(--gold-light)" />
           </span>
           <span className="leading-tight">
-            <span className="block font-serif-display text-2xl font-semibold" style={{ color: "var(--maroon)" }}>
+            <span className="block font-serif-display text-2xl sm:text-3xl font-semibold" style={{ color: "var(--maroon)" }}>
               {SITE.name}
             </span>
-            <span className="block text-[10px] tracking-[0.22em] uppercase" style={{ color: "var(--bronze)" }}>
-              Bharatanatyam Artist & Choreographer
+            <span className="block text-[11px] sm:text-xs tracking-[0.22em] uppercase" style={{ color: "var(--bronze)" }}>
+              Bharatanatyam Artist & Choreographer 
+              
             </span>
           </span>
         </Link>
@@ -56,13 +57,13 @@ const Navbar = () => {
               <li key={l.path}>
                 <Link
                   to={l.path}
-                  className="relative px-3 py-2 text-[12px] font-medium tracking-[0.14em] uppercase transition-colors"
+                  className="relative px-3 py-2 text-[13px] font-medium tracking-[0.14em] uppercase transition-colors"
                   style={{ color: active ? "var(--maroon)" : "var(--ink-soft)" }}
                 >
                   {l.label}
                   <span
-                    className="absolute bottom-0 left-1/2 h-[2px] -translate-x-1/2 rounded transition-all duration-300"
-                    style={{ width: active ? "60%" : "0%", background: "var(--gold)" }}
+                    className="absolute bottom-0 left-1/2 h-[2px] translate-x-1/2 rounded transition-all duration-300"
+                    style={{  background: "var(--gold)" }}
                   />
                 </Link>
               </li>
@@ -83,7 +84,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div
         className="overflow-hidden xl:hidden transition-all duration-500"
-        style={{ maxHeight: open ? "640px" : "0px", background: "rgba(251,246,236,0.98)" }}
+        style={{ maxHeight: open ? "640px" : "0px", background: "var(--ivory)" }}
       >
         <ul className="flex flex-col px-6 pb-6 pt-2">
           {NAV_LINKS.map((l) => {
@@ -92,7 +93,7 @@ const Navbar = () => {
               <li key={l.path}>
                 <Link
                   to={l.path}
-                  className="block border-b py-3 text-sm tracking-[0.14em] uppercase"
+                  className="block border-b py-3 text-base tracking-[0.14em] uppercase"
                   style={{ color: active ? "var(--maroon)" : "var(--ink-soft)", borderColor: "rgba(182,138,62,0.2)" }}
                 >
                   {l.label}

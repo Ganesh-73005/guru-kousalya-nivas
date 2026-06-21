@@ -66,7 +66,7 @@ const Hero = () => {
         <div className="relative w-[400px]">
           <TempleArchFrame className="h-[600px] w-[400px]">
             <img
-              src="https://guru-kousalya-nivas.vercel.app/images/gallery/IMG_2255.JPG.jpeg"
+              src="https://guru-kousalya-nivas.vercel.app/images/productions/Tiruppavai-1.jpg"
               alt="Kousalya Nivas - Bharatanatyam Performance"
               className="h-auto w-full object-cover"
               loading="eager"

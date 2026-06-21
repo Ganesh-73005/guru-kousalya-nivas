@@ -7,6 +7,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        'xs': ['0.7rem', { lineHeight: '1.5' }],
+        'sm': ['1.25rem', { lineHeight: '1.6' }],
+        'base': ['1.25rem', { lineHeight: '1.7' }],
+        'lg': ['1.175rem', { lineHeight: '1.75' }],
+        'xl': ['1.35rem', { lineHeight: '1.75' }],
+        '2xl': ['1.6rem', { lineHeight: '2rem' }],
+        '3xl': ['2rem', { lineHeight: '2.25rem' }],
+        '4xl': ['2.5rem', { lineHeight: '2.5rem' }],
+        '5xl': ['3.2rem', { lineHeight: '1.1' }],
+        '6xl': ['3.9rem', { lineHeight: '1' }],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

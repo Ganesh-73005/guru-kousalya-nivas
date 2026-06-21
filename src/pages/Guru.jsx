@@ -28,14 +28,31 @@ const Guru = () => {
     <div>
       <PageHero title="Guru" breadcrumb={[{ label: "Home", path: "/" }, { label: "Guru" }]} />
 
-      {/* Intro */}
-      <section className="relative overflow-hidden py-20" style={{ background: "var(--ivory)" }}>
+      {/* Intro - Art of Nurturing */}
+      <section className="relative overflow-hidden py-16 sm:py-20" style={{ background: "var(--ivory)" }}>
         <RangoliBg className="absolute right-0 top-0 h-[460px] w-[460px]" opacity={0.1} />
-        <div className="mx-auto max-w-[1100px] px-6 text-center lg:px-10">
-          <p className="eyebrow mb-3" style={{ color: "var(--bronze)" }}>{GURU.badge}</p>
-          <h2 className="font-serif-display text-4xl font-semibold md:text-5xl" style={{ color: "var(--maroon)" }}>{GURU.title}</h2>
-          <KolamDivider className="my-6" />
-          <p className="mx-auto max-w-2xl font-serif-display text-2xl italic leading-snug" style={{ color: "var(--maroon-soft)" }}>“{GURU.quote}”</p>
+        <div className="relative mx-auto grid max-w-[1280px] items-center gap-8 px-4 sm:gap-12 sm:px-6 lg:grid-cols-2 lg:px-10">
+          {/* Left - Content */}
+          <div className="text-center lg:text-left">
+            <p className="eyebrow mb-3 text-[0.65rem] sm:text-xs" style={{ color: "var(--bronze)" }}>{GURU.badge}</p>
+            <h2 className="font-serif-display text-3xl font-semibold sm:text-4xl md:text-5xl" style={{ color: "var(--maroon)" }}>{GURU.title}</h2>
+            <Lotus className="my-5 h-5 w-11 sm:my-6 sm:h-6 sm:w-12 mx-auto lg:mx-0" color="var(--gold)" />
+            <p className="mx-auto max-w-2xl font-serif-display text-xl italic leading-snug sm:text-2xl lg:mx-0" style={{ color: "var(--maroon-soft)" }}>“{GURU.quote}”</p>
+          </div>
+
+          {/* Right - Group Photo */}
+          <div className="relative mx-auto w-full max-w-[500px] lg:max-w-none">
+            <RangoliBg className="absolute -inset-8 -z-10 h-auto w-auto sm:-inset-12" opacity={0.15} />
+            <div className="overflow-hidden rounded-2xl" style={{ border: "3px solid var(--gold)" }}>
+              <img
+                src={GURU.groupImage}
+                alt="M.S. Naatyakshetra Group"
+                className="h-auto w-full object-cover"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

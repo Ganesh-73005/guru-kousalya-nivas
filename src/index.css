@@ -30,6 +30,13 @@ body {
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 18px; /* Increased from default 16px for better readability */
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 17px; /* Slightly smaller on mobile but still larger than default */
+  }
 }
 
 .font-serif-display {
@@ -93,7 +100,7 @@ html { scroll-behavior: smooth; }
 .eyebrow {
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  font-size: 0.72rem;
+  font-size: 0.8rem; /* Increased from 0.72rem for better readability */
   font-weight: 500;
 }
 
@@ -144,3 +151,16 @@ html { scroll-behavior: smooth; }
 
 /* rangoli rotates slowly, drawn over ivory via multiply blend */
 .rangoli-bg { mix-blend-mode: multiply; }
+
+/* Hero section responsive background position */
+.hero-bg-mobile {
+  
+  background-position:  100% 30% !important;
+}
+
+@media (min-width: 1024px) {
+  .hero-bg-desktop {
+   
+    background-position: 100% 45% !important;
+  }
+}

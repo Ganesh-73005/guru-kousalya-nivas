@@ -42,38 +42,57 @@ const Hero = () => {
   return (
     <section
       ref={heroRef}
-      className="hero-bg-mobile lg:hero-bg-desktop relative overflow-hidden pt-24 pb-20 sm:pt-32 sm:pb-28 lg:pt-40 lg:pb-36 min-h-screen flex items-center"
-      style={{
-        backgroundColor: "#000000",
-        backgroundImage: "url('https://portfolio-kousalya-nivas.vercel.app/images/productions/Tiruppavai-1.jpg')",
-        // backgroundSize: "cover",
-        
-        backgroundRepeat: "no-repeat"
-      }}
+      className="relative overflow-hidden pt-24 pb-20 sm:pt-32 sm:pb-28 lg:pt-40 lg:pb-36 min-h-[85vh] flex items-center"
+      style={{ background: "var(--ivory)" }}
     >
-      {/* Dark overlay for better text readability - stronger on mobile */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/65 lg:bg-gradient-to-r lg:from-black/75 lg:via-black/60 lg:to-black/40" />
+      {/* Rangoli decorations in corners */}
+      {/* Top-right corner */}
+      <RangoliBg
+        className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 sm:h-80 sm:w-80 lg:h-96 lg:w-96 opacity-20 z-10"
+        style={{ transform: "rotate(15deg)" }}
+      />
+      {/* Bottom-left corner */}
+      <RangoliBg
+        className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 sm:h-80 sm:w-80 lg:h-96 lg:w-96 opacity-20 z-10"
+        style={{ transform: "rotate(-165deg)" }}
+      />
 
-      <HangingLamp className="pointer-events-none absolute  top-20 hidden lg:block lg:h-40 xl:h-48 2xl:h-56 opacity-70" />
+      {/* Hanging lamps on both corners */}
+      <HangingLamp className="pointer-events-none absolute top-16 left-4 sm:left-8 lg:left-10 h-24 sm:h-32 lg:top-20 lg:h-40 xl:h-48 2xl:h-56 opacity-70 z-10" />
+      <HangingLamp className="pointer-events-none absolute top-16 right-4 sm:right-8 lg:right-10 h-24 sm:h-32 lg:top-20 lg:h-40 xl:h-48 2xl:h-56 opacity-70 z-10" />
 
-      <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10 w-full">
-        {/* Centered Content */}
-        <div className="max-w-3xl mx-auto text-center lg:mx-0 lg:text-left lg:max-w-2xl">
-          <p className="hero-sub eyebrow mb-3 sm:mb-4" style={{ color: "var(--gold-light)" }}>{HERO.eyebrow}</p>
-          <h1 className="font-serif-display font-semibold leading-[1.1] mb-3 sm:mb-5" style={{ color: "var(--ivory)" }}>
-            <span className="hero-line block text-[2.2rem] sm:text-[3.5rem] md:text-7xl lg:text-8xl" style={{ color: "var(--gold-light)" }}>Kousalya Nivas</span>
+      {/* Hero Image - Absolutely Positioned on Right Side with Temple Frame (Desktop only) */}
+      <div className="pointer-events-none absolute right-32 top-1/2 -translate-y-1/3 translate-x-1/9 hidden lg:block z-0">
+        <div className="relative w-[400px]">
+          <TempleArchFrame className="h-[600px] w-[400px]">
+            <img
+              src="https://guru-kousalya-nivas.vercel.app/images/gallery/IMG_2255.JPG.jpeg"
+              alt="Kousalya Nivas - Bharatanatyam Performance"
+              className="h-auto w-full object-cover"
+              loading="eager"
+            />
+          </TempleArchFrame>
+        </div>
+      </div>
+
+      <div className="relative mx-auto max-w-[1350px] px-4 sm:px-6 lg:px-10 w-full z-20 top-20">
+        {/* Content - Single Column */}
+        <div className="max-w-2xl text-center lg:text-left">
+          <p className="hero-sub eyebrow mb-3 sm:mb-4" style={{ color: "var(--gold)" }}>{HERO.eyebrow}</p>
+          <h1 className="font-serif-display font-semibold leading-[1.1] mb-3 sm:mb-5">
+            <span className="hero-line block text-[2.2rem] sm:text-[3.5rem] md:text-7xl lg:text-8xl" style={{ color: "var(--gold)" }}>Kousalya Nivas</span>
           </h1>
-          <h2 className="font-serif-display font-semibold leading-[1.15]" style={{ color: "var(--ivory)" }}>
+          <h2 className="font-serif-display font-semibold leading-[1.15]" style={{ color: "var(--maroon)" }}>
             {HERO.title.map((t, i) => (
               <span key={i} className="hero-line block text-[1.25rem] sm:text-[1.8rem] md:text-3xl lg:text-4xl">{t}</span>
             ))}
           </h2>
-          <p className="hero-sub mt-4 text-sm leading-relaxed sm:mt-6 sm:text-base lg:text-lg" style={{ color: "rgba(251,246,236,0.95)" }}>
+          <p className="hero-sub mt-4 text-sm leading-relaxed sm:mt-6 sm:text-base lg:text-lg" style={{ color: "var(--ink-soft)" }}>
             {HERO.subtitle}
           </p>
-          <div className="hero-cta mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4 lg:justify-start justify-center">
+          <div className="hero-cta mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4 justify-center lg:justify-start">
             <LuxeButton to="/productions">Explore the Journey</LuxeButton>
-            <LuxeButton to="/connect" >Get in Touch</LuxeButton>
+            <LuxeButton to="/connect" variant="outline">Get in Touch</LuxeButton>
           </div>
         </div>
       </div>

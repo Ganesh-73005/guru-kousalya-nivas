@@ -38,7 +38,6 @@ export const useReveal = (deps = []) => {
     }, el);
     scheduleRefresh();
     return () => ctx.revert();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
   return ref;
 };

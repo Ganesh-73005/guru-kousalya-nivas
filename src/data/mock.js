@@ -457,7 +457,7 @@ export const MEDIA = [
 // Gallery — real production & performance imagery, categorised.
 export const GALLERY = [
   // Hanumantha Production
-  { src: `${IMG}/images/productions/Hanumantha-1.jpeg`, cat: "Productions" },
+  { src: `${IMG}/images/productions/ha.jpg`, cat: "Productions" },
   { src: `${IMG}/images/productions/Hanumantha-2.jpg`, cat: "Productions" },
   { src: `${IMG}/images/productions/Hanumantha-6.jpeg`, cat: "Productions" },
   { src: `${IMG}/images/productions/Hanumantha_new1.jpeg`, cat: "Productions" },

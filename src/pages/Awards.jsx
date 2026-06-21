@@ -26,6 +26,7 @@ const Awards = () => {
   const galleryContainerRef = useRef(null);
   const gallerySectionRef = useRef(null);
   const [lightboxData, setLightboxData] = useState(null);
+  const [visibleAwards, setVisibleAwards] = useState(5); // Initially show 5 awards
 
   // Auto-scroll animation for awards gallery
   useEffect(() => {
@@ -55,6 +56,17 @@ const Awards = () => {
       }
     };
   }, []);
+
+  // Progressive loading of awards
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (visibleAwards < AWARDS.list.length) {
+        setVisibleAwards(AWARDS.list.length);
+      }
+    }, 300); // Load remaining awards after 300ms
+
+    return () => clearTimeout(timer);
+  }, [visibleAwards]);
 
   // GSAP Zoom animation on scroll
   useEffect(() => {
@@ -158,6 +170,8 @@ const Awards = () => {
                     src={item.image}
                     alt={item.title}
                     className="h-full w-full object-cover"
+                    loading={idx < 6 ? "eager" : "lazy"}
+                    decoding="async"
                   />
                   {/* Gradient overlay - always visible, darkens on hover */}
                   <div
@@ -204,7 +218,7 @@ const Awards = () => {
           <div className="lg:sticky lg:top-28 lg:self-start">
             <div className="relative mx-auto max-w-[380px]">
               <div className="relative">
-                <img src={AWARDS.nataraja} alt="Bronze Nataraja sculpture" className="h-[460px] w-full object-contain" style={{ filter: "drop-shadow(0 25px 35px rgba(0,0,0,0.25))" }} loading="lazy" />
+                <img src={AWARDS.nataraja} alt="Bronze Nataraja sculpture" className="h-[460px] w-full object-contain" style={{ filter: "drop-shadow(0 25px 35px rgba(0,0,0,0.25))" }} loading="lazy" decoding="async" />
               </div>
               <div className="mt-5 text-center">
                 <Lotus className="mx-auto mb-2 h-5 w-11" color="var(--maroon)" />
@@ -216,15 +230,16 @@ const Awards = () => {
 
           {/* Right — awards list (scrollable) */}
           <div ref={listRef} className="max-h-[600px] overflow-y-auto pr-2" style={{ scrollbarWidth: "thin", scrollbarColor: "var(--gold) var(--sandal)" }}>
-            {AWARDS.list.map((a, idx) => (
+            {AWARDS.list.slice(0, visibleAwards).map((a, idx) => (
               <div
                 key={a.title + a.year}
-                data-reveal
+                data-reveal={idx < 3 ? "true" : undefined}
                 className="group relative mb-6 overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-xl"
                 style={{
                   background: "linear-gradient(135deg, var(--ivory) 0%, var(--cream) 100%)",
                   border: "1px solid rgba(182,138,62,0.25)",
-                  boxShadow: "0 4px 12px rgba(110,20,35,0.08)"
+                  boxShadow: "0 4px 12px rgba(110,20,35,0.08)",
+                  willChange: idx < 3 ? 'transform, opacity' : 'auto'
                 }}
               >
                 {/* Decorative corner accent */}

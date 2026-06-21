@@ -114,6 +114,7 @@ export const PRODUCTIONS = [
     ],
     gallery: [
       `${IMG}/images/productions/Hanumantha-1.jpeg`,
+      `${IMG}/images/productions/ha.jpg`,
       `${IMG}/images/productions/Hanumantha_new1.jpeg`,
       `${IMG}/images/productions/Hanumantha_new3.jpeg`,
       `${IMG}/images/productions/Hanumantha_new5.jpeg`,

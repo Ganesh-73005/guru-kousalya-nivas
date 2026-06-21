@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { NAV_LINKS, SITE } from "../data/mock";
-import { Lotus } from "./decorative/Ornaments";
+import { NAV_LINKS } from "../data/mock";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -29,24 +28,14 @@ const Navbar = () => {
         boxShadow: scrolled ? "0 2px 8px rgba(0,0,0,0.08)" : "none",
       }}
     >
-      <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-3 lg:px-10">
+      <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-2 py-3 sm:px-5 lg:px-7">
         {/* Logo */}
-        <Link to="/" className="group flex items-center gap-3">
-          <span
-            className="flex h-11 w-11 items-center justify-center rounded-full"
-            style={{ background: "var(--maroon)", boxShadow: "0 0 0 2px var(--gold-pale)" }}
-          >
-            <Lotus className="h-6 w-6" color="var(--gold-light)" />
-          </span>
-          <span className="leading-tight">
-            <span className="block font-serif-display text-2xl sm:text-3xl font-semibold" style={{ color: "var(--maroon)" }}>
-              {SITE.name}
-            </span>
-            <span className="block text-[11px] sm:text-xs tracking-[0.22em] uppercase" style={{ color: "var(--bronze)" }}>
-              Bharatanatyam Artist & Choreographer 
-              
-            </span>
-          </span>
+        <Link to="/" className="group flex items-center">
+          <img
+            src="/logo.png"
+            alt="Kousalya Nivas"
+            className="h-16 sm:h-20 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          />
         </Link>
 
         {/* Desktop links */}
@@ -57,7 +46,7 @@ const Navbar = () => {
               <li key={l.path}>
                 <Link
                   to={l.path}
-                  className="relative px-3 py-2 text-[13px] font-medium tracking-[0.14em] uppercase transition-colors"
+                  className=" text-[13px]  h-12 relative px-3 py-2  font-medium tracking-[0.14em] uppercase transition-colors"
                   style={{ color: active ? "var(--maroon)" : "var(--ink-soft)" }}
                 >
                   {l.label}

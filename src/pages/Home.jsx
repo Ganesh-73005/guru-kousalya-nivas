@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Sparkles, Drama, GraduationCap, Award, Flame, ChevronRight } from "lucide-react";
-import { HERO, STATS, ABOUT_PREVIEW, PRODUCTIONS, SITE, INITIATIVES, GALLERY } from "../data/mock";
-import { Mandala, KolamDivider, TempleArchFrame, TempleLamp, SectionTitle, Lotus, RangoliBg, HangingLamp, DiyaRow } from "../components/decorative/Ornaments";
+import { HERO, STATS, ABOUT_PREVIEW, PRODUCTIONS, INITIATIVES, GALLERY } from "../data/mock";
+import { KolamDivider, TempleArchFrame, TempleLamp, SectionTitle, Lotus, RangoliBg, HangingLamp, DiyaRow } from "../components/decorative/Ornaments";
 import { LuxeButton } from "../components/Shared";
 import { useReveal, useCounter, gsap } from "../hooks/useAnim";
 
@@ -28,64 +28,52 @@ const StatCard = ({ stat }) => {
 
 const Hero = () => {
   const heroRef = useRef(null);
-  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    // Start animations immediately, don't wait for image
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
       tl.fromTo(".hero-line", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.1 })
         .fromTo(".hero-sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3")
         .fromTo(".hero-cta", { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
-
-      // Portrait fades in when loaded
-      if (imageLoaded) {
-        gsap.fromTo(".hero-portrait",
-          { opacity: 0, scale: 0.95 },
-          { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }
-        );
-      }
     }, heroRef);
     return () => ctx.revert();
-  }, [imageLoaded]);
+  }, []);
 
   return (
-    <section ref={heroRef} className="relative overflow-hidden pt-20 pb-12 sm:pt-28 sm:pb-16 lg:pt-36 lg:pb-24" style={{ background: "var(--ivory)" }}>
-      <RangoliBg className="absolute -left-24 bottom-0 h-[420px] w-[420px] sm:h-[520px] sm:w-[520px]" opacity={0.13} />
-      <RangoliBg className="absolute -right-24 top-0 h-[420px] w-[420px] sm:h-[520px] sm:w-[520px]" opacity={0.13} />
-      <HangingLamp className="pointer-events-none absolute left-4 top-16 hidden lg:block lg:h-40 xl:h-48 2xl:h-56" />
-      <div className="relative mx-auto grid max-w-[1400px] items-center gap-8 px-4 sm:gap-12 sm:px-6 lg:grid-cols-2 lg:px-10">
-        {/* Left Content */}
-        <div className="order-2 text-center lg:order-1 lg:text-left">
-          <p className="hero-sub eyebrow mb-4 text-[0.65rem] sm:mb-5 sm:text-xs" style={{ color: "var(--bronze)" }}>{HERO.eyebrow}</p>
-          <h1 className="font-serif-display font-semibold leading-[1.05]" style={{ color: "var(--maroon)" }}>
-            {HERO.title.map((t, i) => (
-              <span key={i} className="hero-line block text-[2rem] sm:text-[2.6rem] md:text-6xl">{t}</span>
-            ))}
+    <section
+      ref={heroRef}
+      className="hero-bg-mobile lg:hero-bg-desktop relative overflow-hidden pt-24 pb-20 sm:pt-32 sm:pb-28 lg:pt-40 lg:pb-36 min-h-screen flex items-center"
+      style={{
+        backgroundColor: "#000000",
+        backgroundImage: "url('https://portfolio-kousalya-nivas.vercel.app/images/productions/Tiruppavai-1.jpg')",
+        // backgroundSize: "cover",
+        
+        backgroundRepeat: "no-repeat"
+      }}
+    >
+      {/* Dark overlay for better text readability - stronger on mobile */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/65 lg:bg-gradient-to-r lg:from-black/75 lg:via-black/60 lg:to-black/40" />
+
+      <HangingLamp className="pointer-events-none absolute  top-20 hidden lg:block lg:h-40 xl:h-48 2xl:h-56 opacity-70" />
+
+      <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10 w-full">
+        {/* Centered Content */}
+        <div className="max-w-3xl mx-auto text-center lg:mx-0 lg:text-left lg:max-w-2xl">
+          <p className="hero-sub eyebrow mb-3 sm:mb-4" style={{ color: "var(--gold-light)" }}>{HERO.eyebrow}</p>
+          <h1 className="font-serif-display font-semibold leading-[1.1] mb-3 sm:mb-5" style={{ color: "var(--ivory)" }}>
+            <span className="hero-line block text-[2.2rem] sm:text-[3.5rem] md:text-7xl lg:text-8xl" style={{ color: "var(--gold-light)" }}>Kousalya Nivas</span>
           </h1>
-          <p className="hero-sub mx-auto mt-4 max-w-md text-sm leading-relaxed sm:mt-6 sm:text-base lg:mx-0" style={{ color: "var(--ink-soft)" }}>
+          <h2 className="font-serif-display font-semibold leading-[1.15]" style={{ color: "var(--ivory)" }}>
+            {HERO.title.map((t, i) => (
+              <span key={i} className="hero-line block text-[1.25rem] sm:text-[1.8rem] md:text-3xl lg:text-4xl">{t}</span>
+            ))}
+          </h2>
+          <p className="hero-sub mt-4 text-sm leading-relaxed sm:mt-6 sm:text-base lg:text-lg" style={{ color: "rgba(251,246,236,0.95)" }}>
             {HERO.subtitle}
           </p>
-          <div className="hero-cta mt-6 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4 sm:flex-wrap lg:justify-start">
+          <div className="hero-cta mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4 lg:justify-start justify-center">
             <LuxeButton to="/productions">Explore the Journey</LuxeButton>
-            <LuxeButton to="/connect" variant="outline">Get in Touch</LuxeButton>
-          </div>
-        </div>
-
-        {/* Right portrait */}
-        <div className="order-1 flex justify-center lg:order-2">
-          <div className="hero-portrait relative w-[280px] sm:w-[340px] md:w-[420px] lg:w-[500px]" style={{ opacity: imageLoaded ? 1 : 0.3 }}>
-            <TempleArchFrame className="h-[420px] sm:h-[500px] md:h-auto lg:h-auto">
-              <img
-                src={HERO.portrait}
-                alt="Kousalya Nivas"
-                className="h-auto w-full object-cover"
-                style={{ objectPosition: "center 30%" }}
-                onLoad={() => setImageLoaded(true)}
-                loading="eager"
-                fetchpriority="high"
-              />
-            </TempleArchFrame>
+            <LuxeButton to="/connect" >Get in Touch</LuxeButton>
           </div>
         </div>
       </div>
@@ -133,7 +121,7 @@ const Home = () => {
       <Hero />
 
       {/* Stats */}
-      <section className="relative -mt-4 pb-20" style={{ background: "var(--ivory)" }}>
+      <section className="relative pt-16 pb-20 sm:pt-20 lg:pt-24" style={{ background: "var(--ivory)" }}>
         <div ref={statsRef} className="mx-auto grid max-w-[1400px] grid-cols-2 gap-4 px-6 sm:gap-5 lg:grid-cols-5 lg:px-10">
           {STATS.map((s) => (
             <StatCard key={s.label} stat={s} />

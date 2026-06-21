@@ -61,12 +61,12 @@ const Hero = () => {
       <HangingLamp className="pointer-events-none absolute top-16 left-4 sm:left-8 lg:left-10 h-24 sm:h-32 lg:top-20 lg:h-40 xl:h-48 2xl:h-56 opacity-70 z-10" />
       <HangingLamp className="pointer-events-none absolute top-16 right-4 sm:right-8 lg:right-10 h-24 sm:h-32 lg:top-20 lg:h-40 xl:h-48 2xl:h-56 opacity-70 z-10" />
 
-      {/* Hero Image - Absolutely Positioned on Right Side with Temple Frame (Desktop only) */}
+      {/* Desktop - Absolutely Positioned on Right Side */}
       <div className="pointer-events-none absolute right-32 top-1/2 -translate-y-1/3 translate-x-1/9 hidden lg:block z-0">
         <div className="relative w-[400px]">
           <TempleArchFrame className="h-[600px] w-[400px]">
             <img
-              src="https://guru-kousalya-nivas.vercel.app/images/productions/Tiruppavai-1.jpg"
+              src="/images/productions/Tiruppavai-1.jpg"
               alt="Kousalya Nivas - Bharatanatyam Performance"
               className="h-auto w-full object-cover"
               loading="eager"
@@ -93,6 +93,20 @@ const Hero = () => {
           <div className="hero-cta mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4 justify-center lg:justify-start">
             <LuxeButton to="/productions">Explore the Journey</LuxeButton>
             <LuxeButton to="/connect" variant="outline">Get in Touch</LuxeButton>
+          </div>
+
+          {/* Mobile/Tablet - Image Below Buttons */}
+          <div className="relative mx-auto mt-10 flex justify-center lg:hidden">
+            <div className="relative w-[280px] sm:w-[350px]">
+              <TempleArchFrame className="h-[420px] w-[280px] sm:h-[525px] sm:w-[350px]">
+                <img
+                  src="https://guru-kousalya-nivas.vercel.app/images/gallery/IMG_2255.JPG.jpeg"
+                  alt="Kousalya Nivas - Bharatanatyam Performance"
+                  className="h-auto w-full object-cover"
+                  loading="eager"
+                />
+              </TempleArchFrame>
+            </div>
           </div>
         </div>
       </div>

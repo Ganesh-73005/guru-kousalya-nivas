@@ -234,102 +234,63 @@ const Awards = () => {
               <div
                 key={a.title + a.year}
                 data-reveal={idx < 3 ? "true" : undefined}
-                className="group relative mb-6 overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-xl"
+                className="group relative mb-5 overflow-hidden rounded-2xl bg-white transition-all duration-300 hover:shadow-lg"
                 style={{
-                  background: "linear-gradient(135deg, var(--ivory) 0%, var(--cream) 100%)",
-                  border: "1px solid rgba(182,138,62,0.25)",
-                  boxShadow: "0 4px 12px rgba(110,20,35,0.08)",
+                  border: "1px solid rgba(182,138,62,0.2)",
+                  boxShadow: "0 2px 8px rgba(110,20,35,0.06)",
                   willChange: idx < 3 ? 'transform, opacity' : 'auto'
                 }}
               >
-                {/* Decorative corner accent */}
-                <div
-                  className="absolute right-0 top-0 h-20 w-20 opacity-40 transition-opacity duration-300 group-hover:opacity-60"
-                  style={{
-                    background: "radial-gradient(circle at top right, var(--gold-pale) 0%, transparent 70%)"
-                  }}
-                />
-
-                {/* Year badge - left side */}
-                <div
-                  className="absolute left-0 top-0 flex items-center gap-2 px-4 py-2"
-                  style={{
-                    background: "linear-gradient(90deg, var(--maroon) 0%, rgba(87,16,25,0.85) 100%)",
-                    clipPath: "polygon(0 0, 100% 0, 85% 100%, 0% 100%)"
-                  }}
-                >
-                  <Award size={16} style={{ color: "var(--gold-light)" }} />
-                  <span
-                    className="font-num text-lg font-bold tracking-wide"
-                    style={{ color: "var(--ivory)" }}
-                  >
-                    {a.year}
-                  </span>
-                </div>
-
-                <div className="flex items-start gap-5 p-6 pt-14">
-                  {/* Award number indicator */}
-                  <div className="flex flex-shrink-0 flex-col items-center">
+                <div className="flex items-start gap-4 sm:gap-6 p-5 sm:p-7">
+                  {/* Award icon and year */}
+                  <div className="flex flex-shrink-0 flex-col items-center gap-2">
                     <div
-                      className="relative flex h-12 w-12 items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-110"
+                      className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full"
                       style={{
-                        background: "linear-gradient(135deg, var(--maroon) 0%, var(--maroon-deep) 100%)",
-                        border: "2px solid var(--gold)",
-                        boxShadow: "0 4px 12px rgba(110,20,35,0.25)"
+                        background: "var(--maroon)",
+                        border: "3px solid var(--gold-light)",
+                        boxShadow: "0 4px 12px rgba(110,20,35,0.2)"
                       }}
                     >
-                      <span
-                        className="font-num text-xl font-bold"
-                        style={{
-                          color: "var(--gold-light)"
-                        }}
-                      >
-                        {String(AWARDS.list.length - idx).padStart(2, '0')}
-                      </span>
+                      <Award size={24} style={{ color: "var(--gold-light)" }} />
                     </div>
+                    {/* Year below icon */}
+                    <span
+                      className="font-serif-display text-xl sm:text-2xl font-bold"
+                      style={{ color: "var(--maroon)" }}
+                    >
+                      {a.year}
+                    </span>
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1">
-                    <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
+                  <div className="flex-1 pt-1">
+                    <div className="mb-2 flex flex-wrap items-start gap-2 sm:gap-3">
                       <h3
-                        className="flex-1 font-serif-display text-2xl font-bold leading-tight transition-colors duration-300"
+                        className="flex-1 font-serif-display text-lg sm:text-2xl font-semibold leading-tight"
                         style={{ color: "var(--maroon)" }}
                       >
                         {a.title}
                       </h3>
                       <span
-                        className="rounded-full px-3 py-1.5 text-[10px] font-bold tracking-[0.12em] uppercase transition-all duration-300 group-hover:scale-105"
+                        className="rounded-full px-3 py-1 text-[9px] sm:text-[10px] font-semibold tracking-[0.12em] uppercase"
                         style={{
                           background: "var(--gold)",
-                          color: "var(--maroon-deep)",
-                          boxShadow: "0 2px 8px rgba(182,138,62,0.3)"
+                          color: "var(--maroon-deep)"
                         }}
                       >
                         {a.tag}
                       </span>
                     </div>
 
-                    {/* Decorative line */}
-                    <div
-                      className="mb-3 h-px w-16 transition-all duration-500 group-hover:w-32"
-                      style={{ background: "var(--gold)" }}
-                    />
-
                     <p
-                      className="text-sm leading-relaxed"
-                      style={{ color: "var(--ink-soft)" }}
+                      className="text-sm sm:text-base leading-relaxed mt-2"
+                      style={{ color: "var(--bronze)" }}
                     >
                       {a.org}
                     </p>
                   </div>
                 </div>
-
-                {/* Bottom accent line */}
-                <div
-                  className="h-1 w-0 transition-all duration-500 group-hover:w-full"
-                  style={{ background: "linear-gradient(90deg, var(--gold) 0%, var(--bronze) 100%)" }}
-                />
               </div>
             ))}
           </div>

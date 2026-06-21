@@ -76,8 +76,8 @@ const Hero = () => {
       </div>
 
       <div className="relative mx-auto max-w-[1350px] px-4 sm:px-6 lg:px-10 w-full z-20 top-20">
-        {/* Content - Single Column */}
-        <div className="max-w-2xl text-center lg:text-left">
+        {/* Content - Centered on mobile/tablet, left-aligned on desktop */}
+        <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
           <p className="hero-sub eyebrow mb-3 sm:mb-4" style={{ color: "var(--gold)" }}>{HERO.eyebrow}</p>
           <h1 className="font-serif-display font-semibold leading-[1.1] mb-3 sm:mb-5">
             <span className="hero-line block text-[2.2rem] sm:text-[3.5rem] md:text-7xl lg:text-8xl" style={{ color: "var(--gold)" }}>Kousalya Nivas</span>
@@ -95,12 +95,13 @@ const Hero = () => {
             <LuxeButton to="/connect" variant="outline">Get in Touch</LuxeButton>
           </div>
 
-          {/* Mobile/Tablet - Image Below Buttons */}
+          {/* Mobile/Tablet - Image Below Buttons, Centered */}
           <div className="relative mx-auto mt-10 flex justify-center lg:hidden">
-            <div className="relative w-[280px] sm:w-[350px]">
-              <TempleArchFrame className="h-[420px] w-[280px] sm:h-[525px] sm:w-[350px]">
+            <div className="relative w-[280px] sm:w-[350px] md:w-[400px]">
+              <RangoliBg className="absolute -inset-10 -z-10 h-auto w-auto" opacity={0.18} />
+              <TempleArchFrame className="h-auto">
                 <img
-                  src="https://guru-kousalya-nivas.vercel.app/images/gallery/IMG_2255.JPG.jpeg"
+                  src="/images/productions/Tiruppavai-1.jpg"
                   alt="Kousalya Nivas - Bharatanatyam Performance"
                   className="h-auto w-full object-cover"
                   loading="eager"

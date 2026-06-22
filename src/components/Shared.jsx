@@ -5,10 +5,10 @@ import { Mandala, KolamDivider, CornerFlourish, RangoliBg, HangingLamp } from ".
 
 /* ===== Standard page hero used on inner pages ===== */
 export const PageHero = ({ title, breadcrumb = [] }) => (
-  <section className="relative overflow-hidden pt-32 pb-14" style={{ background: "var(--cream)" }}>
+  <section className="relative pt-32 pb-14" style={{ background: "var(--cream)", overflow: "visible" }}>
     <RangoliBg className="absolute left-1/2 top-1/2 h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2" opacity={0.12} />
-    <HangingLamp className="pointer-events-none absolute left-6 top-16 h-28 sm:left-16 lg:left-32" />
-    <HangingLamp className="pointer-events-none absolute right-6 top-16 h-28 sm:right-16 lg:right-32" />
+    <HangingLamp className="pointer-events-none absolute left-4 sm:left-8 lg:left-10 top-20 h-24 sm:h-32 lg:h-40 xl:h-48 opacity-70 z-10" />
+    <HangingLamp className="pointer-events-none absolute right-4 sm:right-8 lg:right-10 top-20 h-24 sm:h-32 lg:h-40 xl:h-48 opacity-70 z-10" />
     <div className="relative mx-auto max-w-[1400px] px-6 text-center">
       <h1 className="font-serif-display text-5xl font-semibold md:text-6xl" style={{ color: "var(--maroon)" }}>
         {title}

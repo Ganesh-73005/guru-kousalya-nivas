@@ -28,19 +28,17 @@ const Navbar = () => {
         boxShadow: scrolled ? "0 2px 8px rgba(0,0,0,0.08)" : "none",
       }}
     >
-      <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-2 py-3 sm:px-5 lg:px-7">
-        {/* Logo */}
-        <Link to="/" className="group flex items-center">
+<nav className="mx-auto flex max-w-[1400px] items-center justify-between px-2 py-3 sm:px-5 lg:px-7">        {/* Logo */}
+        <Link to="/" className="group flex left`-0 top-0 items-center gap-2">
           <img
-            src="/logo.png"
+            src="/logo_red.png"
             alt="Kousalya Nivas"
-            className="h-16 sm:h-20 md:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-16 sm:h-20 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
 
-        {/* Desktop links */}
-        <ul className="hidden items-center gap-1 xl:flex">
-          {NAV_LINKS.map((l) => {
+        {/* Desktop links - centered */}
+      <ul className="hidden items-center gap-1 xl:flex ">          {NAV_LINKS.map((l) => {
             const active = pathname === l.path;
             return (
               <li key={l.path}>
@@ -60,6 +58,7 @@ const Navbar = () => {
           })}
         </ul>
 
+        {/* Mobile menu button */}
         <button
           aria-label="Toggle menu"
           className="xl:hidden rounded-md p-2"
@@ -68,6 +67,8 @@ const Navbar = () => {
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
+
+        {/* Spacer for desktop to keep links centered */}
       </nav>
 
       {/* Mobile menu */}

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Mail, MapPin, Instagram, Facebook, Youtube } from "lucide-react";
 import { SITE, NAV_LINKS } from "../data/mock";
-import { Mandala, Lotus, KolamDivider } from "./decorative/Ornaments";
+import { Mandala, KolamDivider } from "./decorative/Ornaments";
 
 const Footer = () => {
   const quick = NAV_LINKS.slice(0, 5);
@@ -18,14 +18,13 @@ const Footer = () => {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full" style={{ background: "rgba(255,255,255,0.06)", boxShadow: "0 0 0 1px var(--gold)" }}>
-                <Lotus className="h-6 w-6" color="var(--gold-light)" />
-              </span>
-              <span className="font-serif-display text-2xl font-semibold" style={{ color: "var(--gold-light)" }}>
-                {SITE.name}
-              </span>
-            </div>
+            <Link to="/" className="block -ml-4">
+              <img
+                src="/logo_gold.png"
+                alt="Kousalya Nivas"
+                className="h-16 sm:h-20 w-auto object-contain"
+              />
+            </Link>
             <p className="mt-5 text-sm leading-relaxed" style={{ color: "rgba(251,246,236,0.72)" }}>
               {SITE.role}
             </p>
